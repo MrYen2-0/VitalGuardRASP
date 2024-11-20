@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurar Contraseña</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Helvetica, sans-serif;
+        }
+
+        .lights-screen {
+            background-color: #0d0d0d;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .overlap {
+            width: 100%;
+            max-width: 400px;
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .text-wrapper {
+            font-size: 26px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .frame {
+            margin-bottom: 20px;
+        }
+
+        .text-wrapper-2 {
+            font-size: 20px;
+            font-weight: 500;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-size: 18px;
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #d9d9d9;
+            color: #000;
+            font-size: 16px;
+        }
+
+        .text-wrapper-5 {
+            font-size: 16px;
+            color: #ababab;
+            text-align: center;
+        }
+
+        .register-link {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .button {
+            background-color: #d9d9d9;
+            border: none;
+            color: #000;
+            font-size: 20px;
+            font-weight: 500;
+            height: 38px;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .img {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="lights-screen">
+        <div class="overlap">
+            <div class="text-wrapper">Restaurar Contraseña</div>
+            <div class="frame">
+                <div class="text-wrapper-2">Recupera tu acceso a VitalGuard</div>
+            </div>
+
+            <div class="form">
+                <div class="form-group">
+                    <label for="email" class="text-wrapper-3">Correo</label>
+                    <input type="email" id="email" placeholder="Ingresa tu correo" />
+                </div>
+
+                <div class="form-group">
+                    <label for="new-password" class="text-wrapper-4">Nueva Contraseña</label>
+                    <input type="password" id="new-password" placeholder="Ingresa tu nueva contraseña" />
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password" class="text-wrapper-6">Repite la Contraseña</label>
+                    <input type="password" id="confirm-password" placeholder="Confirma tu nueva contraseña" />
+                </div>
+
+                <div class="form-group">
+                    <p class="text-wrapper-5">
+                        ¿Ya tienes cuenta? <a href="/Index.html" class="register-link">Inicia sesión</a>
+                    </p>
+                </div>
+
+                <button class="button" onclick="window.location.href='/Login.html'">Restaurar</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

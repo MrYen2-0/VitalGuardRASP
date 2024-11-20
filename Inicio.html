@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VitalGuard</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #0d0d0d; color: white; text-align: center; padding: 10px;">
+
+  <div style="margin-bottom: 20px;">
+    <h1 style="font-size: 2.5em; font-weight: 500;">VitalGuard</h1>
+  </div>
+
+  <div style="margin-bottom: 20px;">
+    <a href="/Estadisticas.html" style="color: #ff5b00; font-size: 1.5em; font-weight: 500; margin-right: 20px;">Estadísticas de Salud</a>
+    <a href="/Historial.html" style="color: #ff5b00; font-size: 1.5em; font-weight: 500;">Historial</a>
+  </div>
+
+  <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+    <!-- Ritmo Cardíaco -->
+    <div style="background-color: #36373e; border-radius: 10px; padding: 20px; width: 200px; display: flex; flex-direction: column; align-items: center;">
+      <h2 style="color: #ff5b00; font-size: 1.8em;">Ritmo Cardíaco</h2>
+      <div id="bpmCircle" style="border: 4px solid; border-radius: 50%; width: 150px; height: 150px; display: flex; align-items: center; justify-content: center;">
+        <div style="text-align: center;">
+          <div id="bpm" style="color: #9da9e9; font-size: 2.5em; font-weight: 600;">109</div>
+          <div style="color: #9da9e9; font-size: 1em; font-weight: 600;">BPM</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Temperatura Corporal -->
+    <div style="background-color: #36373e; border-radius: 10px; padding: 20px; width: 200px; display: flex; flex-direction: column; align-items: center;">
+      <h2 style="color: white; font-size: 1.8em;">Temperatura Corporal</h2>
+      <div id="tempCircle" style="border: 4px solid; border-radius: 50%; width: 150px; height: 150px; display: flex; align-items: center; justify-content: center;">
+        <div style="text-align: center;">
+          <div id="temperature" style="color: #9da9e9; font-size: 2.5em; font-weight: 600;">36.9</div>
+          <div style="color: #9da9e9; font-size: 1em; font-weight: 600;">°C</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Necesita Ayuda -->
+    <div style="background-color: #36373e; border-radius: 10px; padding: 20px; width: 200px; display: flex; flex-direction: column; align-items: center;">
+      <h2 id="helpStatus" style="color: #9da9e9; font-size: 1.8em;">Necesita Ayuda: No</h2>
+      <button id="toggleHelpButton" style="background-color: #ff5b00; color: white; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Cambiar Estado</button>
+    </div>
+  </div>
+
+  <script>
+    let bpm = 109;
+    let temperatura = 36.9;
+    let necesitaAyuda = "No";
+
+    // Actualizar el color del borde del círculo según el valor del ritmo cardíaco
+    const getBpmBorderColor = () => {
+      if (bpm > 110) return "#ff1b00";
+      if (bpm >= 58 && bpm <= 109) return "#00d9ff";
+      return "#001f4d";
+    };
+
+    // Actualizar el color del borde del círculo según la temperatura
+    const getTempBorderColor = () => {
+      if (temperatura > 37.9) return "#ff1b00";
+      if (temperatura >= 36 && temperatura <= 37.5) return "#00d9ff";
+      return "#001f4d";
+    };
+
+    // Cambiar estado de ayuda
+    const toggleNecesitaAyuda = () => {
+      necesitaAyuda = (necesitaAyuda === "Sí") ? "No" : "Sí";
+      document.getElementById('helpStatus').innerText = `Necesita Ayuda: ${necesitaAyuda}`;
+      if (necesitaAyuda === "Sí") {
+        alert("La persona necesita ayuda");
+      }
+    };
+
+    // Función para manejar los cambios de BPM y temperatura
+    const handleBpmAndTemperatureChanges = () => {
+      // Actualizar los valores de BPM y temperatura en la interfaz
+      document.getElementById("bpm").innerText = bpm;
+      document.getElementById("temperature").innerText = temperatura;
+      
+      // Cambiar los bordes de los círculos
+      document.getElementById("bpmCircle").style.borderColor = getBpmBorderColor();
+      document.getElementById("tempCircle").style.borderColor = getTempBorderColor();
+
+      // Alertas de advertencia
+      if (bpm > 110) {
+        alert("Advertencia: El ritmo cardíaco es alto");
+      } else if (bpm < 58) {
+        alert("Advertencia: El ritmo cardíaco es bajo");
+      }
+
+      if (temperatura > 37.8) {
+        alert("Advertencia: La temperatura corporal es alta");
+      } else if (temperatura < 35.5) {
+        alert("Advertencia: La temperatura corporal es baja");
+      }
+    };
+
+    // Asignar evento al botón
+    document.getElementById("toggleHelpButton").addEventListener("click", toggleNecesitaAyuda);
+
+    // Llamar a la función de cambios
+    handleBpmAndTemperatureChanges();
+  </script>
+</body>
+</html>

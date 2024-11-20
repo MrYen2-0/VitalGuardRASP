@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estadísticas de Salud</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="background-color: #0d0d0d; color: white; font-family: Arial, sans-serif; margin: 0; padding: 0;">
+
+  <!-- Enlace a la página de inicio -->
+  <a href="/Inicio.html" style="position: absolute; top: 10px; left: 10px; color: #FFA500; font-size: 24px;">←</a>
+
+  <h1 style="font-size: 32px; font-weight: bold; text-align: center; margin-top: 40px;">Estadísticas de Salud</h1>
+
+  <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px; gap: 30px;">
+    
+    <!-- Gráfico de Ritmo Cardíaco -->
+    <div style="background-color: #2d2d2d; padding: 20px; border-radius: 8px; width: 80%; max-width: 700px;">
+      <h2 style="font-size: 24px; font-weight: bold; margin-bottom: 20px;">Curva de Tendencia del Ritmo Cardíaco</h2>
+      <canvas id="cardiacoChart"></canvas>
+      <h2 style="font-size: 24px; font-weight: bold; margin-top: 20px;">Medidas u Observaciones Filtradas de Ritmo Cardíaco</h2>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+        <thead>
+          <tr>
+            <th style="padding: 10px; border-bottom: 2px solid #ccc;">Fecha y Hora</th>
+            <th style="padding: 10px; border-bottom: 2px solid #ccc;">Ritmo Cardíaco (BPM)</th>
+            <th style="padding: 10px; border-bottom: 2px solid #ccc;">Observaciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 10px; border-bottom: 1px solid #ccc;">2024-11-01 12:00</td>
+            <td style="padding: 10px; border-bottom: 1px solid #ccc;">70</td>
+            <td style="padding: 10px; border-bottom: 1px solid #ccc;">Normal</td>
+          </tr>
+          <!-- Más filas aquí -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Gráfico de Temperatura Corporal -->
+    <div style="background-color: #2d2d2d; padding: 20px; border-radius: 8px; width: 80%; max-width: 700px;">
+      <h2 style="font-size: 24px; font-weight: bold; margin-bottom: 20px;">Curva de Tendencia de Temperatura Corporal</h2>
+      <canvas id="temperaturaChart"></canvas>
+      <h2 style="font-size: 24px; font-weight: bold; margin-top: 20px;">Medidas u Observaciones Filtradas de Temperatura Corporal</h2>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+        <thead>
+          <tr>
+            <th style="padding: 10px; border-bottom: 2px solid #ccc;">Fecha y Hora</th>
+            <th style="padding: 10px; border-bottom: 2px solid #ccc;">Temperatura (°C)</th>
+            <th style="padding: 10px; border-bottom: 2px solid #ccc;">Observaciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 10px; border-bottom: 1px solid #ccc;">2024-11-01 12:00</td>
+            <td style="padding: 10px; border-bottom: 1px solid #ccc;">36.6</td>
+            <td style="padding: 10px; border-bottom: 1px solid #ccc;">Normal</td>
+          </tr>
+          <!-- Más filas aquí -->
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script>
+    // Configuración y datos para los gráficos
+
+    // Datos del gráfico de Ritmo Cardíaco
+    const dataCardiaco = {
+      labels: ["12:00", "12:03", "12:06", "12:09", "12:12", "12:15", "12:18", "12:21", "12:24", "12:27"],
+      datasets: [{
+        label: "Ritmo Cardíaco (BPM)",
+        data: [70, 72, 74, 75, 73, 72, 71, 72, 73, 80],
+        borderColor: "rgba(255, 99, 132, 1)",
+        backgroundColor: "rgba(255, 99, 132, 0.2)",
+        fill: true
+      }]
+    };
+
+    // Datos del gráfico de Temperatura Corporal
+    const dataTemperatura = {
+      labels: ["12:00", "12:03", "12:06", "12:09", "12:12", "12:15", "12:18", "12:21", "12:24", "12:27"],
+      datasets: [{
+        label: "Temperatura Corporal (°C)",
+        data: [35, 37.9, 36.8, 36.7, 36, 37.7, 36.6, 36.5, 36.6, 34.6],
+        borderColor: "rgba(54, 162, 235, 1)",
+        backgroundColor: "rgba(54, 162, 235, 0.2)",
+        fill: true
+      }]
+    };
+
+    // Opciones para los gráficos
+    const options = {
+      scales: {
+        x: {
+          title: { display: true, text: 'Tiempo' }
+        },
+        y: {
+          title: { display: true, text: 'Valor' }
+        }
+      }
+    };
+
+    // Crear el gráfico de Ritmo Cardíaco
+    new Chart(document.getElementById('cardiacoChart'), {
+      type: 'line',
+      data: dataCardiaco,
+      options: options
+    });
+
+    // Crear el gráfico de Temperatura Corporal
+    new Chart(document.getElementById('temperaturaChart'), {
+      type: 'line',
+      data: dataTemperatura,
+      options: options
+    });
+  </script>
+
+</body>
+</html>
