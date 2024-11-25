@@ -65,59 +65,8 @@
 
   </div>
 
-  <script>
-    // Configuración y datos para los gráficos
-
-    // Datos del gráfico de Ritmo Cardíaco
-    const dataCardiaco = {
-      labels: ["12:00", "12:03", "12:06", "12:09", "12:12", "12:15", "12:18", "12:21", "12:24", "12:27"],
-      datasets: [{
-        label: "Ritmo Cardíaco (BPM)",
-        data: [70, 72, 74, 75, 73, 72, 71, 72, 73, 80],
-        borderColor: "rgba(255, 99, 132, 1)",
-        backgroundColor: "rgba(255, 99, 132, 0.2)",
-        fill: true
-      }]
-    };
-
-    // Datos del gráfico de Temperatura Corporal
-    const dataTemperatura = {
-      labels: ["12:00", "12:03", "12:06", "12:09", "12:12", "12:15", "12:18", "12:21", "12:24", "12:27"],
-      datasets: [{
-        label: "Temperatura Corporal (°C)",
-        data: [35, 37.9, 36.8, 36.7, 36, 37.7, 36.6, 36.5, 36.6, 34.6],
-        borderColor: "rgba(54, 162, 235, 1)",
-        backgroundColor: "rgba(54, 162, 235, 0.2)",
-        fill: true
-      }]
-    };
-
-    // Opciones para los gráficos
-    const options = {
-      scales: {
-        x: {
-          title: { display: true, text: 'Tiempo' }
-        },
-        y: {
-          title: { display: true, text: 'Valor' }
-        }
-      }
-    };
-
-    // Crear el gráfico de Ritmo Cardíaco
-    new Chart(document.getElementById('cardiacoChart'), {
-      type: 'line',
-      data: dataCardiaco,
-      options: options
-    });
-
-    // Crear el gráfico de Temperatura Corporal
-    new Chart(document.getElementById('temperaturaChart'), {
-      type: 'line',
-      data: dataTemperatura,
-      options: options
-    });
-  </script>
+  <script src="globals.js"></script>
+  <script src="scripts/Estadisticas.js"></script>
 
 </body>
 </html>
