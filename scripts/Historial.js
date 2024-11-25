@@ -53,7 +53,7 @@ let estadisticas = {
   };
   
   // Conexión WebSocket
-  const ws = new WebSocket('ws://localhost:8765');
+  const ws = new WebSocket('ws://localhost:9000');
   
   ws.onopen = () => {
     // Solicitar datos iniciales
