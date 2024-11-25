@@ -2,13 +2,13 @@
     await checkToken(); //aqui esta la funcion de validacion del token, no hace falta que la implementes
 })();
 /** @type {HTMLTableCellElement} */
-const bpmValueDisplayer = document.querySelectorAll("td#bpmValues > td")[0]; //aqui va actualBpm.valor
+const bpmValueDisplayer = document.querySelectorAll("tr#bpmValues > th")[1]; //aqui va actualBpm.valor
 /** @type {HTMLTableCellElement} */
-const fechaBpmDisplayer = document.querySelectorAll("td#bpmValues > td")[1]; // aqui va actualBpm.cuando
+const fechaBpmDisplayer = document.querySelectorAll("tr#bpmValues > th")[0]; // aqui va actualBpm.cuando
 /** @type {HTMLTableCellElement} */
-const tempValueDisplayer = document.querySelectorAll("td#tempValues > td")[0]; // lo mismo para temperatura
+const tempValueDisplayer = document.querySelectorAll("tr#tempValues > th")[1]; // lo mismo para temperatura
 /** @type {HTMLTableCellElement} */
-const fechaTempDisplayer = document.querySelectorAll("td#tempValues > td")[1]; // "" ""
+const fechaTempDisplayer = document.querySelectorAll("tr#tempValues > th")[0]; // "" ""
 let actualBpm = { valor: 0, cuando: "xx-xx-xx" };
 let actualTemperatura = { valor: 0, cuando: "xx-xx-xx" };
 let picoBpm = { valor: 0, cuando: "xx-xx-xx" };
@@ -137,7 +137,7 @@ setInterval(() => {
     saveRecord("insertBPMRecords", bpmValueDisplayer.textContent);
 }, 300000); // 300000 ms = 5 minutos
 
-// Guardar Temperatura cada 5 minutos
+// Guardar Temperatura cada 5 minutos 
 setInterval(() => {
     saveRecord("insertTempRecords", tempValueDisplayer.textContent);
 }, 300000);
